@@ -8,9 +8,9 @@ public class Cat {
     private static final Logger logger = LogManager.getLogger();
 
     // state durations (set via constructor), i.e. the number of ticks in each state
-    private final int sleep;
-    private final int awake;
-    private final int digest;
+    private final int sleepTime;
+    private final int awakeTime;
+    private final int digestTime;
 
     private State currentState;
 
@@ -18,10 +18,10 @@ public class Cat {
 
     public Cat(String name, int sleep, int awake, int digest) {
         this.name = name;
-        this.sleep = sleep;
-        this.awake = awake;
-        this.digest = digest;
-        currentState = new SleepingState(getSleep());
+        this.sleepTime = sleep;
+        this.awakeTime = awake;
+        this.digestTime = digest;
+        currentState = new SleepingState(getSleepTime());
     }
 
     public void tick() {
@@ -59,20 +59,19 @@ public class Cat {
         return currentState instanceof DeathState;
     }
 
-    public int getSleep() {
-        return sleep;
+    public int getSleepTime() {
+        return sleepTime;
     }
 
-    public int getAwake() {
-        return awake;
+    public int getAwakeTime() {
+        return awakeTime;
     }
 
-    public int getDigest() {
-        return digest;
+    public int getDigestTime() {
+        return digestTime;
     }
 
-    @Override
-    public String toString() {
+    public String getName() {
         return name;
     }
 

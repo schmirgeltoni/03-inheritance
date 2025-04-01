@@ -6,9 +6,13 @@ public class SleepingState extends State {
         super(duration);
     }
 
+    /**
+     * @return new {@link HungryState}
+     */
     @Override
     State successor(Cat cat) {
         logStateTransition(cat, "HungryState");
-        return new HungryState(cat.getAwake());
+        // here we need awakeTime in case cat gets fed in HungryState
+        return new HungryState(cat.getAwakeTime());
     }
 }

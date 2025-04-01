@@ -4,7 +4,9 @@ public class DeathState extends State {
     public DeathState() {
         super(0);
     }
-
+    /**
+     * @return itself
+     */
     @Override
     State successor(Cat cat) {
         logger.info("I may have nine lives, but I'm still dead");

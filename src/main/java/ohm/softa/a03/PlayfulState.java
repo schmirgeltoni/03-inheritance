@@ -6,9 +6,12 @@ public class PlayfulState extends State {
         super(duration);
     }
 
+    /**
+     * @return new {@link SleepingState}
+     */
     @Override
     State successor(Cat cat) {
         logStateTransition(cat, "SleepingState");
-        return new SleepingState(cat.getSleep());
+        return new SleepingState(cat.getSleepTime());
     }
 }

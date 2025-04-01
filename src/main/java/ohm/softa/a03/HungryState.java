@@ -5,13 +5,23 @@ public class HungryState extends State {
         super(duration);
     }
 
+    /**
+     * Successor of {@link HungryState} is {@link DeathState}.
+     * <p>
+     * See {@link #feed(Cat)} if you want to keep the cat alive
+     * @return new {@link DeathState}
+     */
     @Override
     State successor(Cat cat) {
         logStateTransition(cat, "DeathState");
         return new DeathState();
     }
-    State feed (Cat cat){
+
+    /**
+     * @return new {@link DigestingState}
+     */
+    State feed(Cat cat) {
         logStateTransition(cat, "DigestingState");
-        return new DigestingState(cat.getDigest(), getDuration() - getTime());
+        return new DigestingState(cat.getDigestTime(), getDuration() - getTime());
     }
 }

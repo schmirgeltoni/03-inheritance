@@ -9,9 +9,12 @@ public class DigestingState extends State {
         this.remainingWakeTime = remainingWakeTime;
     }
 
+    /**
+     * @return new {@link PlayfulState}
+     */
     @Override
     State successor(Cat cat) {
         logStateTransition(cat, "PlayfulState");
-        return new PlayfulState(remainingWakeTime - cat.getDigest());
+        return new PlayfulState(remainingWakeTime - cat.getDigestTime());
     }
 }
